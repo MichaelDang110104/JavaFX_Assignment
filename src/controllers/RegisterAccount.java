@@ -54,7 +54,6 @@ public class RegisterAccount {
 	public void Register() {
 		try {
 			String defaultRole = "Customer";
-			System.out.println("accountNameField: "+ accountNameField.getText());
 			Account account= new Account(accountNameField.getText(), defaultRole );
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			Date birthDate = sdf.parse(birthdateField.getText());
