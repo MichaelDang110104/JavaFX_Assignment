@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="800.0"
+ xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CarManagementController" stylesheets="@CarManagement.css">
+   <top>
+      <Pane prefHeight="56.0" prefWidth="800.0" styleClass="Page_Title" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="354.0" layoutY="20.0" text="Car Management" />
+         </children>
+      </Pane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="data_tbl" layoutY="194.0" onMouseClicked="#GetData" prefHeight="200.0" prefWidth="800.0">
+              <columns>
+                <TableColumn id="carID" fx:id="carID_tbl" prefWidth="39.0" text="CarID" />
+                <TableColumn id="carName" fx:id="carName_tbl" prefWidth="69.0" text="Car Name" />
+                  <TableColumn id="importDate" fx:id="color_tbl" prefWidth="60.0" text="Color" />
+                  <TableColumn id="carModelYear" fx:id="rentPrice_tbl" prefWidth="74.0" text="Rent Price" />
+                  <TableColumn id="color" fx:id="carModelYear_tbl" prefWidth="91.0" text="Car Model Year" />
+                  <TableColumn id="rentPrice" fx:id="status_tbl" minWidth="0.0" prefWidth="68.0" text="Status" />
+                  <TableColumn fx:id="capacity_tbl" prefWidth="76.0" text="Capacity" />
+                  <TableColumn fx:id="importDate_tbl" prefWidth="96.0" text="Import Date" />
+                  <TableColumn fx:id="description_tbl" prefWidth="152.0" text="Description" />
+                  <TableColumn fx:id="producerID_tbl" prefWidth="74.0" text="ProducerID" />
+              </columns>
+            </TableView>
+            <Label layoutX="51.0" layoutY="6.0" text="Search transactions" />
+            <Label layoutX="29.0" layoutY="75.0" text="Car Model" />
+            <Label layoutX="278.0" layoutY="75.0" text="Import Date" />
+            <Label layoutX="285.0" layoutY="111.0" text="RentPrice" />
+            <Label layoutX="28.0" layoutY="111.0" text="Color" />
+            <TextField id="searchCar" fx:id="search_txt" layoutX="176.0" layoutY="2.0" prefHeight="25.0" prefWidth="319.0" />
+            <TextField id="customerID" fx:id="carModel_txt" layoutX="102.0" layoutY="71.0" />
+            <TextField id="pickupDate" fx:id="status_txt" layoutX="609.0" layoutY="58.0" />
+            <TextField id="rentPrice" fx:id="rentPrice_txt" layoutX="351.0" layoutY="107.0" />
+            <Button fx:id="addCarRenting_btn" layoutX="551.0" layoutY="147.0" mnemonicParsing="false" onAction="#AddCar" text="Add Car" />
+            <Button fx:id="updateCarRenting_btn" layoutX="617.0" layoutY="147.0" mnemonicParsing="false" onAction="#UpdateCar" text="Update Car" />
+            <Button fx:id="search_Btn" layoutX="509.0" layoutY="2.0" mnemonicParsing="false" onAction="#SearchCar" text="Search" />
+            <Button fx:id="delCarRenting_btn" layoutX="705.0" layoutY="147.0" mnemonicParsing="false" onAction="#DeleteCar" text="Delete Car" />
+            <TextField id="returnDate" fx:id="color_txt" layoutX="102.0" layoutY="107.0" />
+            <TextField id="carName" fx:id="importDate_txt" layoutX="351.0" layoutY="72.0" />
+            <Label layoutX="551.0" layoutY="62.0" />
+            <Label layoutX="551.0" layoutY="62.0" text="Status" />
+            <TextField id="status" fx:id="producerID_txt" layoutX="609.0" layoutY="107.0" />
+            <Label layoutX="520.0" layoutY="111.0" text="Producer ID" />
+            <TextField id="status" fx:id="capacity_txt" layoutX="98.0" layoutY="147.0" />
+            <Label layoutX="20.0" layoutY="151.0" text="Capacity" />
+            <TextField fx:id="carName_txt" layoutX="351.0" layoutY="147.0" />
+            <Label layoutX="285.0" layoutY="151.0" text="Car Name" />
+            <Label layoutX="55.0" layoutY="42.0" text="Description" />
+            <TextField fx:id="description_txt" layoutX="136.0" layoutY="38.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

@@ -1,0 +1,7 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.sidebar-color{
+-fx-background-color: #13123A;
+}
+.sidebar-txt{
+	-fx-color: #ffffff;
+}

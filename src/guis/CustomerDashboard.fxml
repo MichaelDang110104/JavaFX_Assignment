@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="your.package.Controller">
+    <left>
+        <VBox alignment="CENTER" spacing="20" style="-fx-background-color: #1a1b4b;">
+         <ImageView fitHeight="219.0" fitWidth="259.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../../images/sports-car-silhouette-dealer-logo-vector-39355097.jpg" />
+            </image>
+         </ImageView>
+            <VBox alignment="CENTER" spacing="10">
+                <Label style="-fx-text-fill: white; -fx-font-size: 16;" text="Mahmoud Hamwi" />
+                <Button style="-fx-background-color: #3a3b5a; -fx-text-fill: white;" text="Edit Profile" />
+            </VBox>
+            <VBox alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 20;">
+                <Button style="-fx-background-color: transparent; -fx-text-fill: white;" text="Profile" />
+                <Button style="-fx-background-color: transparent; -fx-text-fill: white;" text="Notifications" />
+                <Button style="-fx-background-color: transparent; -fx-text-fill: white;" text="Password" />
+                <Button style="-fx-background-color: transparent; -fx-text-fill: white;" text="Settings" />
+                <Button style="-fx-background-color: transparent; -fx-text-fill: white;" text="Privacy Policy" />
+            </VBox>
+        </VBox>
+    </left>
+    <center>
+        <AnchorPane style="-fx-background-color: #2a2b6a;">
+            <VBox spacing="20" style="-fx-padding: 40;">
+                <Label style="-fx-text-fill: white; -fx-font-size: 24;" text="My Rentals" />
+                <TableView fx:id="rentalTable" style="-fx-background-color: #3a3b5a;">
+                    <columns>
+                        <TableColumn fx:id="carNameColumn" text="Car Name" />
+                        <TableColumn fx:id="pickupDateColumn" text="Pickup Date" />
+                        <TableColumn fx:id="returnDateColumn" text="Return Date" />
+                        <TableColumn fx:id="rentPriceColumn" text="Rent Price" />
+                    </columns>
+                </TableView>
+                <Label style="-fx-text-fill: white; -fx-font-size: 24;" text="Write a Review" />
+                <VBox spacing="10">
+                    <HBox spacing="10">
+                        <Label style="-fx-text-fill: white;" text="Car Name" />
+                        <TextField fx:id="reviewCarNameField" />
+                    </HBox>
+                    <HBox spacing="10">
+                        <Label style="-fx-text-fill: white;" text="Review" />
+                        <TextArea fx:id="reviewTextArea" prefColumnCount="50" prefRowCount="4" />
+                    </HBox>
+                    <HBox spacing="10">
+                        <Label style="-fx-text-fill: white;" text="Stars" />
+                        <TextField fx:id="reviewStarsField" />
+                    </HBox>
+                    <Button style="-fx-background-color: #3a3b5a; -fx-text-fill: white;" text="Submit Review" />
+                </VBox>
+            </VBox>
+        </AnchorPane>
+    </center>
+</BorderPane>

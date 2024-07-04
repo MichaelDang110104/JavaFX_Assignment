@@ -1,0 +1,44 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+/* General Styles */
+.root {
+    -fx-background-color: #2a2b6a;
+    -fx-font-family: 'Exo', sans-serif;
+}
+
+.page-title {
+    -fx-background-color: #1a1b4b;
+}
+
+.title-label {
+    -fx-text-fill: white;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.table-view {
+    -fx-background-color: #3a3b5a;
+    -fx-text-fill: white;
+}
+
+.form-label {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+.text-field {
+    -fx-background-color: #1a1b4b;
+    -fx-text-fill: white;
+    -fx-border-color: #3a3b5a;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+}
+
+.button {
+    -fx-background-color: #3a3b5a;
+    -fx-text-fill: white;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px 10px;
+}
+.label {
+	-fx-text-fill: white;
+}

@@ -1,0 +1,40 @@
+/* General Styles */
+.root {
+    -fx-background-color: #2a2b6a;
+    -fx-font-family: 'Exo', sans-serif;
+}
+
+.Page_Title {
+    -fx-background-color: #1a1b4b;
+}
+
+.Page_Title .label {
+    -fx-text-fill: white;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.label {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+.text-field {
+    -fx-background-color: #1a1b4b;
+    -fx-text-fill: white;
+    -fx-border-color: #3a3b5a;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+}
+
+.button {
+    -fx-background-color: #3a3b5a;
+    -fx-text-fill: white;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px 10px;
+}
+
+.table-view {
+    -fx-background-color: #3a3b5a;
+    -fx-text-fill: white;
+}

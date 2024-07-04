@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+ prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+ stylesheets="@CustomerManagement.css" fx:controller="controllers.CustomerManagementController">
+   <top>
+      <Pane prefHeight="56.0" prefWidth="800.0" styleClass="Page_Title" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="338.0" layoutY="20.0" text="Customer management" />
+         </children>
+      </Pane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="data_tbl" layoutY="194.0" onMouseClicked="#getData" prefHeight="200.0" prefWidth="800.0">
+              <columns>
+                <TableColumn id="carID" fx:id="customerID_tbl" prefWidth="42.66665518283844" text="CustomerID" />
+                <TableColumn id="carName" fx:id="customerName_tbl" prefWidth="67.33334732055664" text="Name" />
+                  <TableColumn id="importDate" fx:id="mobile_tbl" prefWidth="77.0" text="Mobile" />
+                  <TableColumn id="carModelYear" fx:id="birthday_tbl" prefWidth="86.0" text="Birthday" />
+                  <TableColumn id="color" fx:id="identityCard_tbl" text="IdentityCard" />
+                  <TableColumn id="rentPrice" fx:id="licenseNumber_tbl" prefWidth="98.0" text="LicenceNumber" />
+                  <TableColumn id="capacity" fx:id="licenseDate_tbl" prefWidth="82.0" text="LicenceDate" />
+                  <TableColumn id="description" fx:id="email_tbl" prefWidth="118.0" text="Email" />
+                  <TableColumn id="status" fx:id="password_tbl" minWidth="0.0" prefWidth="79.0" text="Password" />
+                  <TableColumn fx:id="accountID_tbl" prefWidth="67.0" text="AccountID" />
+              </columns>
+            </TableView>
+            <Label layoutX="103.0" layoutY="23.0" text="Search customers:" />
+            <Label layoutX="267.0" layoutY="62.0" text="CustomerName" />
+            <Label layoutX="276.0" layoutY="107.0" text="IdentityCard" />
+            <Label layoutX="23.0" layoutY="104.0" text="LicenceDate" />
+            <Label layoutX="33.0" layoutY="62.0" text="Birthday" />
+            <TextField id="searchCar" fx:id="search_txt" layoutX="203.0" layoutY="19.0" prefHeight="25.0" prefWidth="288.0" />
+            <TextField id="mobile" fx:id="mobile_txt" layoutX="627.0" layoutY="58.0" />
+            <TextField id="identityCard" fx:id="identityCard_txt" layoutX="363.0" layoutY="103.0" />
+            <TextField id="licenceDate" fx:id="licenceDate_txt" layoutX="102.0" layoutY="103.0" />
+            <Label layoutX="287.0" layoutY="140.0" text="Email" />
+            <TextField id="email" fx:id="email_txt" layoutX="363.0" layoutY="133.0" />
+            <Button layoutX="438.0" layoutY="165.0" mnemonicParsing="false" onAction="#AddCustomer" text="Add Customer" />
+            <Button layoutX="548.0" layoutY="165.0" mnemonicParsing="false" onAction="#UpdateCustomer" text="Update Customer" />
+            <Button fx:id="search_Btn" layoutX="513.0" layoutY="19.0" mnemonicParsing="false" onAction="#SearchCustomer" text="Search" />
+            <Button layoutX="681.0" layoutY="165.0" mnemonicParsing="false" onAction="#DeleteCustomer" text="Delete Customer" />
+            <TextField id="birthday" fx:id="birthday_txt" layoutX="102.0" layoutY="58.0" />
+            <TextField id="customerName" fx:id="customerName_txt" layoutX="363.0" layoutY="58.0" />
+            <Label layoutX="551.0" layoutY="62.0" />
+            <Label layoutX="551.0" layoutY="62.0" text="Mobile" />
+            <TextField id="licenceNumber" fx:id="licenceNumber_txt" layoutX="627.0" layoutY="94.0" />
+            <Label layoutX="533.0" layoutY="95.0" text="LicenceNumber" />
+            <TextField id="password" fx:id="password_txt" layoutX="627.0" layoutY="133.0" />
+            <Label layoutX="548.0" layoutY="137.0" text="Password" />
+            <Label layoutX="27.0" layoutY="169.0" />
+            <TextField id="licenceDate" fx:id="accountID_txt" layoutX="102.0" layoutY="136.0" />
+            <Label id="accountID" layoutX="27.0" layoutY="140.0" text="AccountID" />
+            <Button fx:id="redirectButton" layoutX="627.0" layoutY="19.0" mnemonicParsing="false" onAction="#RedirectCarManagement" text="Car management" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
