@@ -1,5 +1,7 @@
 package controllers;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -63,6 +65,18 @@ public class LoginController {
 			e.printStackTrace();
 			System.out.println("Error: " + e.getMessage());
 		}
+	}
+	
+	public void RegisterAccount() throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("../guis/RegisterAccount.fxml"));
+		Parent root = loader.load();
+		root.getStylesheets().add(getClass().getResource("../guis/RegisterAccount.css").toExternalForm());
+		Stage stage = new Stage();
+		stage.setScene(new Scene(root));
+		stage.show();
+		
+		Stage currentStage = (Stage) txt_UserName.getScene().getWindow();
+        currentStage.close();
 	}
 
 	@FXML
