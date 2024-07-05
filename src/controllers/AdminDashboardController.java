@@ -47,13 +47,13 @@ public class AdminDashboardController {
 		currentStage.close();
 	}
 	public void RedirectReview() throws IOException {
-//		FXMLLoader loader = new FXMLLoader(getClass().getResource("../guis/CarManagement.fxml"));
-//		Parent root = loader.load();
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("../guis/AdminReview.fxml"));
+		Parent root = loader.load();
 //		root.getStylesheets().add(getClass().getResource("../guis/CustomerManagement.css").toExternalForm());
-//		Stage stage = new Stage();
-//		stage.setScene(new Scene(root));
-//		stage.show();
-//		
-//		Stage currentStage = (Stage) title.getScene().getWindow();
+		Stage stage = new Stage();
+		stage.setScene(new Scene(root));
+		stage.show();
+		Stage currentStage = (Stage) title.getScene().getWindow();
+		currentStage.close();
 	}
 }
