@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CustomerDashboardController" xmlns="http://javafx.com/javafx/21">
+<BorderPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CustomerDashboardController">
     <left>
-        <VBox alignment="CENTER" spacing="20" style="-fx-background-color: #1a1b4b;">
+        <VBox alignment="CENTER" prefHeight="669.0" prefWidth="164.0" spacing="20" style="-fx-background-color: #1a1b4b;">
          <ImageView fitHeight="219.0" fitWidth="259.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../../../images/sports-car-silhouette-dealer-logo-vector-39355097.jpg" />
@@ -23,7 +23,7 @@
          </ImageView>
             <VBox alignment="CENTER" spacing="10">
                 <Label fx:id="name" style="-fx-text-fill: white; -fx-font-size: 16;" text="Mahmoud Hamwi" />
-                <Button style="-fx-background-color: #3a3b5a; -fx-text-fill: white;" onAction="#EditProfile" text="Edit Profile" />
+                <Button onAction="#EditProfile" style="-fx-background-color: #3a3b5a; -fx-text-fill: white;" text="Edit Profile" />
             </VBox>
         </VBox>
     </left>
@@ -31,12 +31,14 @@
         <AnchorPane style="-fx-background-color: #2a2b6a;">
             <VBox spacing="20" style="-fx-padding: 40;">
                 <Label style="-fx-text-fill: white; -fx-font-size: 24;" text="My Rentals" />
-                <TableView fx:id="rentalTable" style="-fx-background-color: #3a3b5a;">
+                <TableView fx:id="rentalTable" onMouseClicked="#getData" style="-fx-background-color: #3a3b5a;">
                     <columns>
                         <TableColumn fx:id="carNameColumn" text="Car Name" />
                         <TableColumn fx:id="pickupDateColumn" text="Pickup Date" />
                         <TableColumn fx:id="returnDateColumn" text="Return Date" />
                         <TableColumn fx:id="rentPriceColumn" text="Rent Price" />
+                  <TableColumn fx:id="starColumn" prefWidth="75.0" text="Stars" />
+                  <TableColumn fx:id="reviewColumn" prefWidth="241.0" text="Review" />
                     </columns>
                 </TableView>
                 <Label style="-fx-text-fill: white; -fx-font-size: 24;" text="Write a Review" />
@@ -53,7 +55,7 @@
                         <Label style="-fx-text-fill: white;" text="Stars" />
                         <TextField fx:id="reviewStarsField" />
                     </HBox>
-                    <Button style="-fx-background-color: #3a3b5a; -fx-text-fill: white;" text="Submit Review" />
+                    <Button onAction="#review" style="-fx-background-color: #3a3b5a; -fx-text-fill: white;" text="Submit Review" />
                 </VBox>
             </VBox>
         </AnchorPane>
