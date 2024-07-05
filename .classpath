@@ -11,11 +11,11 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFX">
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFx">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry combineaccessrules="false" kind="src" path="/Assignment"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Hibernate"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

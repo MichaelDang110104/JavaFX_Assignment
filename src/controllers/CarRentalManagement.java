@@ -11,9 +11,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import pojos.CarRental;
+import pojos.CarRentalKey;
+import pojos.Customer;
 import services.CarRentalService;
+import services.CustomerService;
 import services.ICarRentalService;
+import services.ICustomerService;
 
 public class CarRentalManagement implements Initializable{
 	
@@ -41,18 +46,33 @@ public class CarRentalManagement implements Initializable{
     ICarRentalService iCarRentalService = null;
     String configuration = "hibernate.cfg.xml";
     ObservableList<CarRental> ds = null;
+    ICustomerService iCustomerService = null;
     CarRental carRental = null;
     
     public CarRentalManagement() {
 		if(iCarRentalService == null) {
 			iCarRentalService = new CarRentalService(configuration);
 		}
+		if(iCustomerService == null) {
+			iCustomerService = new CustomerService(configuration);
+		}
 	}
+    
+    public void getData(MouseEvent event) {
+    	this.carRental = rentalTable.getSelectionModel().getSelectedItem();
+    }
+    
+    public void deleteData() {
+    	if(carRental != null) {
+    		iCarRentalService.delete(new CarRentalKey(carRental.getCustomerID(), carRental.getCarID()));
+        	showCarRental();
+    	}
+    }
 	
     public ObservableList<CarRental> showCarRental(){
     	ds =FXCollections.observableArrayList(iCarRentalService.getAll());
-    	customerIdColumn.setCellValueFactory(new PropertyValueFactory("customer"));
-    	carIdColumn.setCellValueFactory(new PropertyValueFactory("car"));
+    	customerIdColumn.setCellValueFactory(new PropertyValueFactory("customerID"));
+    	carIdColumn.setCellValueFactory(new PropertyValueFactory("carID"));
     	pickupDateColumn.setCellValueFactory(new PropertyValueFactory("pickupDate"));
     	returnDateColumn.setCellValueFactory(new PropertyValueFactory("returnDate"));
     	rentPriceColumn.setCellValueFactory(new PropertyValueFactory("rentPrice"));
@@ -60,10 +80,7 @@ public class CarRentalManagement implements Initializable{
     	rentalTable.setItems(ds);
     	return ds;
     }
-    
-    public void DeleteCarRental() {
-    	
-    }
+
     
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

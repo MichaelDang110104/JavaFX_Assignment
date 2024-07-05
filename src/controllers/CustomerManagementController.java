@@ -25,7 +25,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import pojos.Account;
 import pojos.Customer;
-
+import pojos.UserSession;
 import services.AccountService;
 import services.CustomerService;
 import services.IAccountService;

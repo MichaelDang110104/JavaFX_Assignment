@@ -14,7 +14,7 @@
 xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21">
     <top>
         <AnchorPane prefHeight="200.0" prefWidth="800.0" BorderPane.alignment="CENTER">
-            <TableView fx:id="rentalTable" layoutY="64.0" prefHeight="346.0" prefWidth="597.0">
+            <TableView onMouseClicked="#getData" fx:id="rentalTable" layoutY="64.0" prefHeight="346.0" prefWidth="597.0">
                 <columns>
                     <TableColumn fx:id="customerIdColumn" text="Customer ID" />
                     <TableColumn fx:id="carIdColumn" prefWidth="54.4000244140625" text="Car ID" />
@@ -29,7 +29,7 @@ xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21">
                     <Font size="22.0" />
                 </font>
             </Label>
-            <Button layoutX="635.0" layoutY="223.0" mnemonicParsing="false" onAction="#DeleteCarRental" text="DELETE CAR RENTAL" />
+            <Button layoutX="635.0" layoutY="223.0" mnemonicParsing="false" onAction="#deleteData" text="DELETE CAR RENTAL" />
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="600.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../images/sports-car-silhouette-dealer-logo-vector-39355097.jpg" />

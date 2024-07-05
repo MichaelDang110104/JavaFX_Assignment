@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import pojos.Customer;
+import pojos.UserSession;
 import services.CustomerService;
 import services.ICustomerService;
 
