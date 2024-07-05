@@ -17,15 +17,15 @@
  fx:controller="controllers.CustomerDashboardController">
     <left>
         <VBox alignment="CENTER" prefHeight="669.0" prefWidth="164.0" spacing="20" style="-fx-background-color: #1a1b4b;">
+             <Label fx:id="name" style="-fx-text-fill: white; -fx-font-size: 16;" text="Mahmoud Hamwi" />
+             <Button onAction="#EditProfile" style="-fx-background-color: #3a3b5a; -fx-text-fill: white;" text="Edit Profile" />
          <ImageView fitHeight="219.0" fitWidth="259.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../../../images/sports-car-silhouette-dealer-logo-vector-39355097.jpg" />
             </image>
          </ImageView>
-            <VBox alignment="CENTER" spacing="10">
-                <Label fx:id="name" style="-fx-text-fill: white; -fx-font-size: 16;" text="Mahmoud Hamwi" />
-                <Button onAction="#EditProfile" style="-fx-background-color: #3a3b5a; -fx-text-fill: white;" text="Edit Profile" />
-            </VBox>
+         <Button onAction="#redirectCustomerRentCar" mnemonicParsing="false" text="Rent Car" />
+            <VBox alignment="CENTER" spacing="10" />
         </VBox>
     </left>
     <center>

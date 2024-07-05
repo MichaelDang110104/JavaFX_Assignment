@@ -75,6 +75,17 @@ public class CustomerDashboardController implements Initializable{
 	String configuration = "hibernate.cfg.xml";
 	Customer customer = UserSession.getInstance().getLoginUser();
 
+	public void redirectCustomerRentCar() throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("../guis/CustomerRentCar.fxml"));
+		Parent root = loader.load();
+		root.getStylesheets().add(getClass().getResource("../guis/CustomerRentCar.css").toExternalForm());
+		Stage stage = new Stage();
+		stage.setScene(new Scene(root));
+		stage.show();
+		Stage currentStage = (Stage) reviewStarsField.getScene().getWindow();
+        currentStage.close();
+	}
+	
 	public void getData(MouseEvent event) {
 		CarRental carRental = rentalTable.getSelectionModel().getSelectedItem();
 		car = carRental.getCar();

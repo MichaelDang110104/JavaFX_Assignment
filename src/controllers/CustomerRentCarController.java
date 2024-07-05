@@ -77,9 +77,9 @@ public class CustomerRentCarController implements Initializable{
     
     public ObservableList<Car> showCar() {
     	carData = FXCollections.observableArrayList(iCarService.getAll());
-    	carIdColumn.setCellValueFactory(new PropertyValueFactory("id"));
-        carNameColumn.setCellValueFactory(new PropertyValueFactory("name"));
-        carModelYearColumn.setCellValueFactory(new PropertyValueFactory("modelYear"));
+    	carIdColumn.setCellValueFactory(new PropertyValueFactory("carId"));
+        carNameColumn.setCellValueFactory(new PropertyValueFactory("carName"));
+        carModelYearColumn.setCellValueFactory(new PropertyValueFactory("carModelYear"));
         carColorColumn.setCellValueFactory(new PropertyValueFactory("color"));
         carCapacityColumn.setCellValueFactory(new PropertyValueFactory("capacity"));
         carRentPriceColumn.setCellValueFactory(new PropertyValueFactory("rentPrice"));
@@ -92,7 +92,7 @@ public class CustomerRentCarController implements Initializable{
     public void rentCar() {
     	Car car = iCarService.findByID(carID);
     	CarRental carRental = new CarRental(customer, car , java.sql.Date.valueOf(pickupDatePicker.getValue()), java.sql.Date.valueOf(returnDatePicker.getValue())
-    			, Double.valueOf(carRentPriceColumn.getText()), "Renting");
+    			, car.getRentPrice(), "Renting");
     }
     
     

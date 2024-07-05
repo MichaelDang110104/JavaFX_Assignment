@@ -13,7 +13,8 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="root"
-fx:controller="controllers.CustomerRentCarController" stylesheets="@CustomerRentCar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+fx:controller="controllers.CustomerRentCarController" stylesheets="@CustomerRentCar.css"
+ xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="572.0" prefWidth="772.0" spacing="20.0">
          <children>
@@ -54,7 +55,5 @@ fx:controller="controllers.CustomerRentCarController" stylesheets="@CustomerRent
          </padding>
       </VBox>
    </children>
-   <stylesheets>
-      <URL value="@rentacar.css" />
-   </stylesheets>
+
 </AnchorPane>
