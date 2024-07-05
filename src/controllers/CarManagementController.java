@@ -220,7 +220,7 @@ public class CarManagementController implements Initializable {
 	@FXML
 	public void RedirectCarRentalManagement() {
 	    try {
-	        FXMLLoader loader = new FXMLLoader(getClass().getResource("../guis/CarRentalManagement.fxml"));
+	        FXMLLoader loader = new FXMLLoader(getClass().getResource("../guis/CarRental.fxml"));
 	        Parent root = loader.load();
 	        System.out.println("Load fxml ok !");
 	        

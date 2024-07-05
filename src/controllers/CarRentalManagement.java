@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -49,7 +50,7 @@ public class CarRentalManagement implements Initializable{
 	}
 	
     public ObservableList<CarRental> showCarRental(){
-    	ds = (ObservableList<CarRental>) iCarRentalService.getAll();
+    	ds =FXCollections.observableArrayList(iCarRentalService.getAll());
     	customerIdColumn.setCellValueFactory(new PropertyValueFactory("customer"));
     	carIdColumn.setCellValueFactory(new PropertyValueFactory("car"));
     	pickupDateColumn.setCellValueFactory(new PropertyValueFactory("pickupDate"));
