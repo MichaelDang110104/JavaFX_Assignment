@@ -218,21 +218,21 @@ public class CarManagementController implements Initializable {
 	}
 	
 	@FXML
-	public void RedirectCarRentalManagement() {
+	public void RedirectDashboard() {
 	    try {
-	        FXMLLoader loader = new FXMLLoader(getClass().getResource("../guis/CarRental.fxml"));
+	        FXMLLoader loader = new FXMLLoader(getClass().getResource("../guis/AdminDashboard.fxml"));
 	        Parent root = loader.load();
 	        System.out.println("Load fxml ok !");
 	        
-	        root.getStylesheets().add(getClass().getResource("../guis/CarRentalManagement.css").toExternalForm());
+	        root.getStylesheets().add(getClass().getResource("../guis/AdminDashboard.css").toExternalForm());
 	        System.out.println("Load css ok");
 	        
 	        Stage stage = new Stage();
 	        stage.setScene(new Scene(root));
 	        stage.show();
 	        
-//	        Stage currentStage = (Stage) data_tbl.getScene().getWindow();
-//	        currentStage.close();
+	        Stage currentStage = (Stage) data_tbl.getScene().getWindow();
+	        currentStage.close();
 	    } catch (Exception e) {
 	        System.out.println("Error: " + e.getMessage());
 	        e.printStackTrace(); // Print stack trace to help with debugging

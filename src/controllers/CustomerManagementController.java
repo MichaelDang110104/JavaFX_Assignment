@@ -203,25 +203,29 @@ public class CustomerManagementController implements Initializable{
 			});
 		});
 	}
+	
 	@FXML
-	public void RedirectCarManagement() {
-		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("../guis/CarManagement.fxml"));
-			Parent root = loader.load();
-			root.getStylesheets().add(getClass().getResource("../guis/CarManagement.css").toExternalForm());
-			Stage stage = new Stage();
-			stage.setScene(new Scene(root));
-			stage.show();
-			
-			Stage currentStage = (Stage) customerName_txt.getScene().getWindow();
-            currentStage.close();
-		} catch (Exception e) {
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setContentText("Error:" + e.getMessage());
-			alert.show();
-		}
-
+	public void RedirectDashboard() {
+	    try {
+	        FXMLLoader loader = new FXMLLoader(getClass().getResource("../guis/AdminDashboard.fxml"));
+	        Parent root = loader.load();
+	        System.out.println("Load fxml ok !");
+	        
+	        root.getStylesheets().add(getClass().getResource("../guis/AdminDashboard.css").toExternalForm());
+	        System.out.println("Load css ok");
+	        
+	        Stage stage = new Stage();
+	        stage.setScene(new Scene(root));
+	        stage.show();
+	        
+	        Stage currentStage = (Stage) data_tbl.getScene().getWindow();
+	        currentStage.close();
+	    } catch (Exception e) {
+	        System.out.println("Error: " + e.getMessage());
+	        e.printStackTrace(); // Print stack trace to help with debugging
+	    }
 	}
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub

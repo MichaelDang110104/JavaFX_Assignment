@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -9,9 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
- prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
- stylesheets="@CustomerManagement.css" fx:controller="controllers.CustomerManagementController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" stylesheets="@CustomerManagement.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CustomerManagementController">
    <top>
       <Pane prefHeight="56.0" prefWidth="800.0" styleClass="Page_Title" BorderPane.alignment="CENTER">
          <children>
@@ -62,7 +61,7 @@
             <Label layoutX="27.0" layoutY="169.0" />
             <TextField id="licenceDate" fx:id="accountID_txt" layoutX="102.0" layoutY="136.0" />
             <Label id="accountID" layoutX="27.0" layoutY="140.0" text="AccountID" />
-            <Button fx:id="redirectButton" layoutX="627.0" layoutY="19.0" mnemonicParsing="false" onAction="#RedirectCarManagement" text="Car management" />
+            <Hyperlink layoutX="642.0" layoutY="21.0" onAction="#RedirectDashboard" text="Back to dash board?" />
          </children>
       </AnchorPane>
    </center>
