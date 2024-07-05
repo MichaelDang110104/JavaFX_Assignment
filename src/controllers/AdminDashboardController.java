@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import pojos.UserSession;
 
 public class AdminDashboardController {
 	@FXML
@@ -49,10 +50,19 @@ public class AdminDashboardController {
 	public void RedirectReview() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("../guis/AdminReview.fxml"));
 		Parent root = loader.load();
-//		root.getStylesheets().add(getClass().getResource("../guis/CustomerManagement.css").toExternalForm());
 		Stage stage = new Stage();
 		stage.setScene(new Scene(root));
 		stage.show();
+		Stage currentStage = (Stage) title.getScene().getWindow();
+		currentStage.close();
+	}
+	public void logOut() throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("../guis/Login.fxml"));
+		Parent root = loader.load();
+		Stage stage = new Stage();
+		stage.setScene(new Scene(root));
+		stage.show();
+		UserSession.getInstance().setLoginUser(null);
 		Stage currentStage = (Stage) title.getScene().getWindow();
 		currentStage.close();
 	}

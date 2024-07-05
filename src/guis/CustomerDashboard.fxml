@@ -13,7 +13,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CustomerDashboardController">
+<BorderPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
+ fx:controller="controllers.CustomerDashboardController">
     <left>
         <VBox alignment="CENTER" prefHeight="669.0" prefWidth="164.0" spacing="20" style="-fx-background-color: #1a1b4b;">
          <ImageView fitHeight="219.0" fitWidth="259.0" pickOnBounds="true" preserveRatio="true">
