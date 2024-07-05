@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="root"
+fx:controller="controllers.CustomerRentCarController" stylesheets="@CustomerRentCar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="572.0" prefWidth="772.0" spacing="20.0">
+         <children>
+            <Label text="Rent a Car" textFill="#7b1fa2">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <TableView onMouseClicked="#getData" fx:id="carTable" prefHeight="300.0" prefWidth="700.0" styleClass="table-view">
+              <columns>
+                <TableColumn fx:id="carIdColumn" prefWidth="75.0" text="Car ID" />
+                <TableColumn fx:id="carNameColumn" prefWidth="150.0" text="Car Name" />
+                <TableColumn fx:id="carModelYearColumn" prefWidth="100.0" text="Model Year" />
+                <TableColumn fx:id="carColorColumn" prefWidth="100.0" text="Color" />
+                <TableColumn fx:id="carCapacityColumn" prefWidth="100.0" text="Capacity" />
+                <TableColumn fx:id="carRentPriceColumn" prefWidth="100.0" text="Rent Price" />
+                <TableColumn fx:id="carStatusColumn" prefWidth="95.199951171875" text="Status" />
+              </columns>
+            </TableView>
+            <HBox alignment="CENTER" spacing="20.0">
+               <children>
+                  <Label text="Pick-up Date:" textFill="#7b1fa2" />
+                  <DatePicker fx:id="pickupDatePicker" styleClass="date-picker" />
+                  <Label text="Return Date:" textFill="#7b1fa2" />
+                  <DatePicker fx:id="returnDatePicker" styleClass="date-picker" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" spacing="20.0">
+               <children>
+                  <Label text="Car ID:" textFill="#7b1fa2" />
+                  <TextField fx:id="carID_txt" />
+                  <Button fx:id="rentButton" mnemonicParsing="false" onAction="#rentCar" styleClass="rent-button" text="Rent" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </children>
+   <stylesheets>
+      <URL value="@rentacar.css" />
+   </stylesheets>
+</AnchorPane>
