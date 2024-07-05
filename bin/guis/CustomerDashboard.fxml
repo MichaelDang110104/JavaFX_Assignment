@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CustomerDashboardController" xmlns="http://javafx.com/javafx/21">
     <left>
         <VBox alignment="CENTER" spacing="20" style="-fx-background-color: #1a1b4b;">
          <ImageView fitHeight="219.0" fitWidth="259.0" pickOnBounds="true" preserveRatio="true">
@@ -22,15 +22,8 @@
             </image>
          </ImageView>
             <VBox alignment="CENTER" spacing="10">
-                <Label style="-fx-text-fill: white; -fx-font-size: 16;" text="Mahmoud Hamwi" />
-                <Button style="-fx-background-color: #3a3b5a; -fx-text-fill: white;" text="Edit Profile" />
-            </VBox>
-            <VBox alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 20;">
-                <Button style="-fx-background-color: transparent; -fx-text-fill: white;" text="Profile" />
-                <Button style="-fx-background-color: transparent; -fx-text-fill: white;" text="Notifications" />
-                <Button style="-fx-background-color: transparent; -fx-text-fill: white;" text="Password" />
-                <Button style="-fx-background-color: transparent; -fx-text-fill: white;" text="Settings" />
-                <Button style="-fx-background-color: transparent; -fx-text-fill: white;" text="Privacy Policy" />
+                <Label fx:id="name" style="-fx-text-fill: white; -fx-font-size: 16;" text="Mahmoud Hamwi" />
+                <Button style="-fx-background-color: #3a3b5a; -fx-text-fill: white;" onAction="#EditProfile" text="Edit Profile" />
             </VBox>
         </VBox>
     </left>

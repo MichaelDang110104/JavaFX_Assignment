@@ -36,7 +36,7 @@ public class LoginController {
 		try {
 			Customer loginUser = iCustomerService.login(txt_UserName.getText(), txt_Password.getText());
 			if (loginUser != null) {
-				
+				UserSession.getInstance().setLoginUser(loginUser);
 				if (loginUser.getAccount().getRole().equals("Admin")) {
 					FXMLLoader loader = new FXMLLoader(getClass().getResource("../guis/AdminDashboard.fxml"));
 					Parent root = loader.load();

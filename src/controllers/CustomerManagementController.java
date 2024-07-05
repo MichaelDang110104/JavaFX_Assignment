@@ -95,6 +95,7 @@ public class CustomerManagementController implements Initializable{
 	}
 	
 	ObservableList<Customer> showCustomer(){
+		System.out.println(UserSession.getInstance().getLoginUser());
 		ds =FXCollections.observableArrayList(iCustomerService.getAll());
 		customerID_tbl.setCellValueFactory(new PropertyValueFactory("customerID"));
 		customerName_tbl.setCellValueFactory(new PropertyValueFactory("customerName"));
