@@ -13,7 +13,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import pojos.Customer;
-import pojos.UserSession;
 import services.CustomerService;
 import services.ICustomerService;
 
@@ -36,8 +35,6 @@ public class LoginController {
 		try {
 			Customer loginUser = iCustomerService.login(txt_UserName.getText(), txt_Password.getText());
 			if (loginUser != null) {
-				//Save to session
-				UserSession.getInstance().setLoginUser(loginUser);
 				
 				if (loginUser.getAccount().getRole().equals("Admin")) {
 					FXMLLoader loader = new FXMLLoader(getClass().getResource("../guis/CustomerManagement.fxml"));
@@ -50,7 +47,7 @@ public class LoginController {
 					Stage currentStage = (Stage) txt_UserName.getScene().getWindow();
 	                currentStage.close();
 				}else if(loginUser.getAccount().getRole().equals("Customer")) {
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("../guis/Customer_Profile.fxml"));
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("../guis/CustomerDashboard.fxml"));
 					Parent root = loader.load();
 					root.getStylesheets().add(getClass().getResource("../guis/CustomerView.css").toExternalForm());
 					Stage stage = new Stage();

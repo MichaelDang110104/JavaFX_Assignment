@@ -1,5 +1,6 @@
 package controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -12,7 +13,10 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn;
@@ -21,6 +25,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import pojos.Car;
 import pojos.CarProducer;
 import pojos.Customer;
@@ -211,6 +216,29 @@ public class CarManagementController implements Initializable {
 		data_tbl.setItems(ds);
 		return ds;
 	}
+	
+	@FXML
+	public void RedirectCarRentalManagement() {
+	    try {
+	        FXMLLoader loader = new FXMLLoader(getClass().getResource("../guis/CarRentalManagement.fxml"));
+	        Parent root = loader.load();
+	        System.out.println("Load fxml ok !");
+	        
+	        root.getStylesheets().add(getClass().getResource("../guis/CarRentalManagement.css").toExternalForm());
+	        System.out.println("Load css ok");
+	        
+	        Stage stage = new Stage();
+	        stage.setScene(new Scene(root));
+	        stage.show();
+	        
+//	        Stage currentStage = (Stage) data_tbl.getScene().getWindow();
+//	        currentStage.close();
+	    } catch (Exception e) {
+	        System.out.println("Error: " + e.getMessage());
+	        e.printStackTrace(); // Print stack trace to help with debugging
+	    }
+	}
+
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

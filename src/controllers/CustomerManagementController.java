@@ -25,7 +25,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import pojos.Account;
 import pojos.Customer;
-import pojos.UserSession;
+
 import services.AccountService;
 import services.CustomerService;
 import services.IAccountService;
@@ -91,8 +91,7 @@ public class CustomerManagementController implements Initializable{
 		}
 		this.ds = ds;
 		
-		//Get from session, delete if u like...
-		System.out.println("hasbcvasbcisacasb:::"+ UserSession.getInstance().getLoginUser());
+
 	}
 	
 	ObservableList<Customer> showCustomer(){
@@ -236,5 +235,7 @@ public class CustomerManagementController implements Initializable{
 		// Call SearchEquipment to set up the search functionality
 		SearchCustomer();
 	}
+
+
 
 }
