@@ -1,0 +1,26 @@
+/* JavaFX CSS for CarRental Management */
+
+.root {
+    -fx-background-color: #2a2b6a;
+    -fx-font-family: 'Exo', sans-serif;
+}
+
+.page-title {
+    -fx-background-color: #1a1b4b;
+}
+
+.label {
+    -fx-text-fill: white;
+}
+
+.table-view {
+    -fx-background-color: #3a3b5a;
+    -fx-text-fill: white;
+}
+
+.button {
+    -fx-background-color: #3a3b5a;
+    -fx-text-fill: white;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px 10px;
+}

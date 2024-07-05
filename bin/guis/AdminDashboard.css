@@ -1,0 +1,60 @@
+/* Style for the entire BorderPane */
+.border-pane {
+    -fx-background-color: #E6E6FA; /* Lavender background */
+}
+
+/* Center AnchorPane style */
+.anchor-pane {
+    -fx-padding: 20;
+    -fx-background-color: #E6E6FA; /* Lavender background */
+    -fx-border-color: #4B0082; /* Purple border */
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+/* Style for the main title */
+.label-main-title {
+    -fx-text-fill: #4B0082; /* Purple text */
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-padding: 20 0 20 0; /* Top padding */
+    -fx-alignment: center;
+}
+
+/* Style for the buttons */
+.button {
+    -fx-background-color: #4B0082; /* Purple background */
+    -fx-text-fill: white;
+    -fx-font-size: 17px;
+    -fx-padding: 10 20; /* Padding inside button */
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.button:hover {
+    -fx-background-color: #7B68EE; /* Lighter purple on hover */
+}
+
+/* Style for the VBox containing user information */
+.vbox-user-info {
+    -fx-padding: 20;
+    -fx-background-color: #4B0082; /* Purple background */
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-alignment: center;
+}
+
+.label-user-name {
+    -fx-text-fill: white;
+    -fx-font-size: 24px;
+}
+
+.hyperlink-logout {
+    -fx-text-fill: blue;
+    -fx-font-size: 16px;
+}
+
+.hyperlink-logout:hover {
+    -fx-text-fill: #7B68EE; /* Lighter purple on hover */
+}
