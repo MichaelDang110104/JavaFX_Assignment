@@ -11,11 +11,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="723.0" stylesheets="@AdminDashboard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity"
+ minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="723.0" 
+ stylesheets="@AdminDashboard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminDashboardController">
    <left>
       <AnchorPane prefHeight="400.0" prefWidth="327.0" styleClass="anchor-pane" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="273.0" layoutY="23.0" styleClass="label-main-title" text="Admin Dashboard">
+            <Label fx:id="title" layoutX="273.0" layoutY="23.0" styleClass="label-main-title" text="Admin Dashboard">
                <font>
                   <Font size="32.0" />
                </font>
@@ -25,22 +27,22 @@
                   <Image url="@../../images/sports-car-silhouette-dealer-logo-vector-39355097.jpg" />
                </image>
             </ImageView>
-            <Button layoutX="273.0" layoutY="269.0" mnemonicParsing="false" text="Customer Management">
+            <Button layoutX="273.0" layoutY="269.0" mnemonicParsing="false" onAction="#RedirectCustomer" text="Customer Management">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
-            <Button layoutX="486.0" layoutY="157.0" mnemonicParsing="false" text="Car Rental Management">
+            <Button layoutX="486.0" layoutY="157.0" mnemonicParsing="false" onAction="#RedirectCarRental" text="Car Rental Management">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
-            <Button layoutX="511.0" layoutY="269.0" mnemonicParsing="false" text="Review Management">
+            <Button layoutX="511.0" layoutY="269.0" mnemonicParsing="false" onAction="#RedirectReview" text="Review Management">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
-            <Button layoutX="273.0" layoutY="152.0" mnemonicParsing="false" text="Car Management">
+            <Button layoutX="273.0" layoutY="152.0" mnemonicParsing="false" onAction="#RedirectCar" text="Car Management">
                <font>
                   <Font size="17.0" />
                </font>

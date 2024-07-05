@@ -37,13 +37,12 @@ public class LoginController {
 			if (loginUser != null) {
 				
 				if (loginUser.getAccount().getRole().equals("Admin")) {
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("../guis/CustomerManagement.fxml"));
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("../guis/AdminDashboard.fxml"));
 					Parent root = loader.load();
-					root.getStylesheets().add(getClass().getResource("../guis/CustomerManagement.css").toExternalForm());
+					root.getStylesheets().add(getClass().getResource("../guis/AdminDashboard.css").toExternalForm());
 					Stage stage = new Stage();
 					stage.setScene(new Scene(root));
 					stage.show();
-					
 					Stage currentStage = (Stage) txt_UserName.getScene().getWindow();
 	                currentStage.close();
 				}else if(loginUser.getAccount().getRole().equals("Customer")) {
@@ -53,7 +52,6 @@ public class LoginController {
 					Stage stage = new Stage();
 					stage.setScene(new Scene(root));
 					stage.show();
-					
 					Stage currentStage = (Stage) txt_UserName.getScene().getWindow();
 	                currentStage.close();
 				}
