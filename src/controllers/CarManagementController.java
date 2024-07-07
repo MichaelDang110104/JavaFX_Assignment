@@ -143,6 +143,7 @@ public class CarManagementController implements Initializable {
 			carProducer.getCar().add(car);
 			iCarProducerService.update(carProducer);
 			showCars();
+			refreshTable();
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
 		}
@@ -167,6 +168,7 @@ public class CarManagementController implements Initializable {
 		}
 		iCarService.update(car);
 		showCars();
+		refreshTable();
 	}
 
 	@FXML
@@ -174,6 +176,7 @@ public class CarManagementController implements Initializable {
 		try {
 			iCarService.delete(carID);
 			showCars();
+			refreshTable();
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
 		}
@@ -216,29 +219,40 @@ public class CarManagementController implements Initializable {
 		data_tbl.setItems(ds);
 		return ds;
 	}
-	
-	@FXML
-	public void RedirectDashboard() {
-	    try {
-	        FXMLLoader loader = new FXMLLoader(getClass().getResource("../guis/AdminDashboard.fxml"));
-	        Parent root = loader.load();
-	        System.out.println("Load fxml ok !");
-	        
-	        root.getStylesheets().add(getClass().getResource("../guis/AdminDashboard.css").toExternalForm());
-	        System.out.println("Load css ok");
-	        
-	        Stage stage = new Stage();
-	        stage.setScene(new Scene(root));
-	        stage.show();
-	        
-	        Stage currentStage = (Stage) data_tbl.getScene().getWindow();
-	        currentStage.close();
-	    } catch (Exception e) {
-	        System.out.println("Error: " + e.getMessage());
-	        e.printStackTrace(); // Print stack trace to help with debugging
-	    }
+
+	private void refreshTable() {
+		filteredData = new FilteredList<>(ds, b -> true);
+		sortedData = new SortedList<>(filteredData);
+		sortedData.comparatorProperty().bind(data_tbl.comparatorProperty());
+
+		// Set the sorted data to the TableView
+		data_tbl.setItems(sortedData);
+
+		// Call SearchCustomer to set up the search functionality
+		SearchCar();
 	}
 
+	@FXML
+	public void RedirectDashboard() {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../guis/AdminDashboard.fxml"));
+			Parent root = loader.load();
+			System.out.println("Load fxml ok !");
+
+			root.getStylesheets().add(getClass().getResource("../guis/AdminDashboard.css").toExternalForm());
+			System.out.println("Load css ok");
+
+			Stage stage = new Stage();
+			stage.setScene(new Scene(root));
+			stage.show();
+
+			Stage currentStage = (Stage) data_tbl.getScene().getWindow();
+			currentStage.close();
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+			e.printStackTrace(); // Print stack trace to help with debugging
+		}
+	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

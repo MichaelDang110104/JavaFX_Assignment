@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -16,15 +17,13 @@
               <VBox alignment="CENTER" prefHeight="380.0" prefWidth="152.0" spacing="20" style="-fx-background-color: #1a1b4b;">
                <VBox prefHeight="140.0" prefWidth="200.0" />
                    <Label style="-fx-text-fill: white; -fx-font-size: 16;" text="Mahmoud Hamwi" />
-                  <VBox alignment="CENTER" spacing="10">
-                      <Button onAction="#EditProfile" style="-fx-background-color: #3a3b5a; -fx-text-fill: white;" text="Edit Profile" />
-                  </VBox>
-                  <VBox alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 20;">
-                      <Button style="-fx-background-color: transparent; -fx-text-fill: white;" text="Back to dashboard" />
-                  </VBox>
-               <ImageView fitHeight="193.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                  <VBox alignment="CENTER" spacing="10" />
+                  <VBox alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 20;" />
+               <Hyperlink onAction="#BackToDashboard" text="Back to dashboard" />
+               <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+               <ImageView fitHeight="213.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="@../../../images/sports-car-silhouette-dealer-logo-vector-39355097.jpg" />
+                     <Image url="@../../images/sports-car-silhouette-dealer-logo-vector-39355097.jpg" />
                   </image>
                </ImageView>
               </VBox>
@@ -35,18 +34,19 @@
             <Label layoutX="239.0" layoutY="91.0" text="Email" />
             <Label layoutX="236.0" layoutY="123.0" text="Password" />
             <Label layoutX="239.0" layoutY="196.0" text="Mobile Phone" />
-            <Label fx:id="updateLicenceNumber_txt" layoutX="234.0" layoutY="265.0" text="Licence Number" />
-            <TextField id="birthday" fx:id="updateName_txt" layoutX="346.0" layoutY="51.0" />
-            <TextField id="birthday" fx:id="updateEmail_txt" layoutX="346.0" layoutY="87.0" />
-            <TextField id="birthday" fx:id="updatePassword_txt" layoutX="346.0" layoutY="119.0" />
-            <TextField id="birthday" fx:id="updateAccountName" layoutX="346.0" layoutY="158.0" />
-            <TextField id="birthday" fx:id="updatePhone_txt" layoutX="346.0" layoutY="192.0" />
-            <TextField id="birthday" fx:id="updateCard_txt" layoutX="346.0" layoutY="226.0" />
-            <TextField id="birthday" fx:id="updateLicenceNumber_txt" layoutX="346.0" layoutY="261.0" />
-            <TextField id="birthday" fx:id="updateLicenceDate_txt" layoutX="346.0" layoutY="295.0" />
-            <TextField id="birthday" fx:id="updateBirthdate_txt" layoutX="346.0" layoutY="337.0" />
+            <Label layoutX="234.0" layoutY="265.0" text="Licence Number" />
+            <TextField  fx:id="updateName_txt" layoutX="346.0" layoutY="51.0" />
+            <TextField  fx:id="updateEmail_txt" layoutX="346.0" layoutY="87.0" />
+            <TextField  fx:id="updatePassword_txt" layoutX="346.0" layoutY="119.0" />
+            <TextField  fx:id="updateAccountName" layoutX="346.0" layoutY="158.0" />
+            <TextField  fx:id="updatePhone_txt" layoutX="346.0" layoutY="192.0" />
+            <TextField  fx:id="updateCard_txt" layoutX="346.0" layoutY="226.0" />
+            <TextField  fx:id="updateLicenceNumber_txt" layoutX="346.0" layoutY="261.0" />
+            <TextField  fx:id="updateLicenceDate_txt" layoutX="346.0" layoutY="295.0" />
+            <TextField  fx:id="updateBirthdate_txt" layoutX="346.0" layoutY="337.0" />
             <Label layoutX="246.0" layoutY="341.0" text="Birthday" />
-            <Label layoutX="303.0" layoutY="20.0" text="Update Profile" />
+            <Label layoutX="308.0" layoutY="14.0" text="Update Profile" />
+                <Button layoutX="421.0" layoutY="417.0" onAction="#EditProfile" style="-fx-background-color: #3a3b5a; -fx-text-fill: white;" text="Update Profile" />
          </children>
       </AnchorPane>
    </top>

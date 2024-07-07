@@ -31,7 +31,7 @@ import services.CustomerService;
 import services.IAccountService;
 import services.ICustomerService;
 
-public class CustomerManagementController implements Initializable{
+public class CustomerManagementController implements Initializable {
 	@FXML
 	private TextField search_txt;
 	@FXML
@@ -74,7 +74,7 @@ public class CustomerManagementController implements Initializable{
 	private TableColumn<Customer, String> password_tbl;
 	@FXML
 	private TableColumn<Customer, Integer> accountID_tbl;
-	
+
 	FilteredList<Customer> filteredData;
 	SortedList<Customer> sortedData;
 	ICustomerService iCustomerService = null;
@@ -82,27 +82,27 @@ public class CustomerManagementController implements Initializable{
 	IAccountService iAccountService = null;
 	int customerID = 0;
 	String configuration = "hibernate.cfg.xml";
+
 	public CustomerManagementController() {
-		if(iCustomerService == null) {
+		if (iCustomerService == null) {
 			iCustomerService = new CustomerService(configuration);
 		}
-		if(iAccountService == null) {
+		if (iAccountService == null) {
 			iAccountService = new AccountService(configuration);
 		}
 		this.ds = ds;
-		
 
 	}
-	
-	ObservableList<Customer> showCustomer(){
+
+	ObservableList<Customer> showCustomer() {
 		System.out.println(UserSession.getInstance().getLoginUser());
-		ds =FXCollections.observableArrayList(iCustomerService.getAll());
+		ds = FXCollections.observableArrayList(iCustomerService.getAll());
 		customerID_tbl.setCellValueFactory(new PropertyValueFactory("customerID"));
 		customerName_tbl.setCellValueFactory(new PropertyValueFactory("customerName"));
-		birthday_tbl.setCellValueFactory(new PropertyValueFactory<Customer,Date>("birthday"));
+		birthday_tbl.setCellValueFactory(new PropertyValueFactory<Customer, Date>("birthday"));
 		identityCard_tbl.setCellValueFactory(new PropertyValueFactory("identityCard"));
 		licenseNumber_tbl.setCellValueFactory(new PropertyValueFactory("licenceNumber"));
-		licenseDate_tbl.setCellValueFactory(new PropertyValueFactory<Customer,Date>("licenceDate"));
+		licenseDate_tbl.setCellValueFactory(new PropertyValueFactory<Customer, Date>("licenceDate"));
 		email_tbl.setCellValueFactory(new PropertyValueFactory("email"));
 		mobile_tbl.setCellValueFactory(new PropertyValueFactory("mobile"));
 		password_tbl.setCellValueFactory(new PropertyValueFactory("password"));
@@ -110,11 +110,11 @@ public class CustomerManagementController implements Initializable{
 		data_tbl.setItems(ds);
 		return ds;
 	}
-	
+
 	@FXML
 	public void getData(MouseEvent event) {
 		Customer customer = data_tbl.getSelectionModel().getSelectedItem();
-		if(customer != null) {
+		if (customer != null) {
 			customerID = customer.getCustomerID();
 			customerName_txt.setText(customer.getCustomerName());
 			birthday_txt.setText(String.valueOf(customer.getBirthday()));
@@ -127,6 +127,19 @@ public class CustomerManagementController implements Initializable{
 			licenceDate_txt.setText(String.valueOf(customer.getLicenceDate()));
 		}
 	}
+
+	private void refreshTable() {
+	    filteredData = new FilteredList<>(ds, b -> true);
+	    sortedData = new SortedList<>(filteredData);
+	    sortedData.comparatorProperty().bind(data_tbl.comparatorProperty());
+
+	    // Set the sorted data to the TableView
+	    data_tbl.setItems(sortedData);
+
+	    // Call SearchCustomer to set up the search functionality
+	    SearchCustomer();
+	}
+	
 	@FXML
 	public void AddCustomer() {
 		try {
@@ -136,29 +149,34 @@ public class CustomerManagementController implements Initializable{
 			Date birthDate = sdf.parse(birthday);
 			Date licenseDate = sdf.parse(lDate);
 			Account account = iAccountService.findByID(Integer.valueOf(accountID_txt.getText()));
-			Customer customer = new Customer(customerName_txt.getText(), mobile_txt.getText(), birthDate, identityCard_txt.getText(), licenceNumber_txt.getText()
-					, licenseDate, email_txt.getText(), password_txt.getText(),account);
+			Customer customer = new Customer(customerName_txt.getText(), mobile_txt.getText(), birthDate,
+					identityCard_txt.getText(), licenceNumber_txt.getText(), licenseDate, email_txt.getText(),
+					password_txt.getText(), account);
 			iCustomerService.save(customer);
 			data_tbl.getItems().add(customer);
 			showCustomer();
+			refreshTable();
 		} catch (Exception e) {
-			System.out.println("Error: "+e.getMessage());
+			System.out.println("Error: " + e.getMessage());
 		}
 	}
+
 	@FXML
 	public void DeleteCustomer() {
 		try {
-			if(customerID != 0) {
+			if (customerID != 0) {
 				iCustomerService.delete(customerID);
 			}
 			showCustomer();
+			refreshTable();
 		} catch (Exception e) {
-			System.out.println("Error: "+e.getMessage());
+			System.out.println("Error: " + e.getMessage());
 			Alert alert = new Alert(AlertType.ERROR);
-			alert.setContentText("Error: "+e.getMessage());
+			alert.setContentText("Error: " + e.getMessage());
 			alert.show();
 		}
 	}
+
 	@FXML
 	public void UpdateCustomer() {
 		try {
@@ -169,7 +187,7 @@ public class CustomerManagementController implements Initializable{
 			Date licenseDate = sdf.parse(lDate);
 			Account account = iAccountService.findByID(Integer.valueOf(accountID_txt.getText()));
 			Customer customer = iCustomerService.findByID(customerID);
-			if(customer != null) {
+			if (customer != null) {
 				customer.setCustomerName(customerName_txt.getText());
 				customer.setBirthday(birthDate);
 				customer.setEmail(email_txt.getText());
@@ -179,13 +197,15 @@ public class CustomerManagementController implements Initializable{
 				customer.setLicenceNumber(licenceNumber_txt.getText());
 				customer.setLicenceDate(licenseDate);
 			}
-			
+
 			iCustomerService.update(customer);
 			showCustomer();
+			refreshTable();
 		} catch (Exception e) {
-			System.out.println("Error: "+e.getMessage());
+			System.out.println("Error: " + e.getMessage());
 		}
 	}
+
 	@FXML
 	public void SearchCustomer() {
 		search_txt.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -196,36 +216,37 @@ public class CustomerManagementController implements Initializable{
 
 				String lowerCaseFilter = newValue.toLowerCase();
 
-				if (customer.getCustomerName().toLowerCase().contains(lowerCaseFilter)||customer.getEmail().toLowerCase().contains(lowerCaseFilter)) {
+				if (customer.getCustomerName().toLowerCase().contains(lowerCaseFilter)
+						|| customer.getEmail().toLowerCase().contains(lowerCaseFilter)) {
 					return true; // Filter matches name
 				}
 				return false; // Does not match
 			});
 		});
 	}
-	
+
 	@FXML
 	public void RedirectDashboard() {
-	    try {
-	        FXMLLoader loader = new FXMLLoader(getClass().getResource("../guis/AdminDashboard.fxml"));
-	        Parent root = loader.load();
-	        System.out.println("Load fxml ok !");
-	        
-	        root.getStylesheets().add(getClass().getResource("../guis/AdminDashboard.css").toExternalForm());
-	        System.out.println("Load css ok");
-	        
-	        Stage stage = new Stage();
-	        stage.setScene(new Scene(root));
-	        stage.show();
-	        
-	        Stage currentStage = (Stage) data_tbl.getScene().getWindow();
-	        currentStage.close();
-	    } catch (Exception e) {
-	        System.out.println("Error: " + e.getMessage());
-	        e.printStackTrace(); // Print stack trace to help with debugging
-	    }
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../guis/AdminDashboard.fxml"));
+			Parent root = loader.load();
+			System.out.println("Load fxml ok !");
+
+			root.getStylesheets().add(getClass().getResource("../guis/AdminDashboard.css").toExternalForm());
+			System.out.println("Load css ok");
+
+			Stage stage = new Stage();
+			stage.setScene(new Scene(root));
+			stage.show();
+
+			Stage currentStage = (Stage) data_tbl.getScene().getWindow();
+			currentStage.close();
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+			e.printStackTrace(); // Print stack trace to help with debugging
+		}
 	}
-	
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
@@ -240,7 +261,5 @@ public class CustomerManagementController implements Initializable{
 		// Call SearchEquipment to set up the search functionality
 		SearchCustomer();
 	}
-
-
 
 }

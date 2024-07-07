@@ -1,5 +1,6 @@
 package controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -7,18 +8,26 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import pojos.Car;
 import pojos.CarRental;
 import pojos.Customer;
 import pojos.UserSession;
+import services.CarRentalService;
 import services.CarService;
+import services.ICarRentalService;
 import services.ICarService;
 
 public class CustomerRentCarController implements Initializable{
@@ -62,17 +71,22 @@ public class CustomerRentCarController implements Initializable{
     private ObservableList<Car> carData = null;
     ICarService iCarService = null;
     Customer customer = UserSession.getInstance().getLoginUser();
+    ICarRentalService iCarRentalService = null;
     
     public CustomerRentCarController() {
 		// TODO Auto-generated constructor stub
     	if(iCarService == null) {
     		iCarService = new CarService(configuration);
     	}
+    	if(iCarRentalService == null) {
+    		iCarRentalService = new CarRentalService(configuration);
+    	}
     }
     
     public void getData(MouseEvent event) {
     	Car car = carTable.getSelectionModel().getSelectedItem();
     	carID = car.getCarId();
+    	carID_txt.setText(String.valueOf(carID));
     }
     
     public ObservableList<Car> showCar() {
@@ -93,8 +107,22 @@ public class CustomerRentCarController implements Initializable{
     	Car car = iCarService.findByID(carID);
     	CarRental carRental = new CarRental(customer, car , java.sql.Date.valueOf(pickupDatePicker.getValue()), java.sql.Date.valueOf(returnDatePicker.getValue())
     			, car.getRentPrice(), "Renting");
+    	iCarRentalService.save(carRental);
+    	Alert alert = new Alert(AlertType.CONFIRMATION);
+    	alert.setContentText("Rent car successfully !");
+    	alert.show();
     }
     
+    
+    public void RedirectDashboard() throws IOException {
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("../guis/CustomerDashboard.fxml"));
+		Parent root = loader.load();
+		Stage stage = new Stage();
+		stage.setScene(new Scene(root));
+		stage.show();
+		Stage currentStage = (Stage) carID_txt.getScene().getWindow();
+        currentStage.close();
+    }
     
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
